@@ -1,0 +1,64 @@
+/* Shown only on paper. */
+.print-only {
+  display: none;
+}
+
+@page {
+  margin: 14mm;
+}
+
+@media print {
+  .print-only {
+    display: block !important;
+    margin-top: 12pt;
+    font-size: 9pt;
+  }
+  :root {
+    color-scheme: light;
+  }
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+  [data-print="hide"] {
+    display: none !important;
+  }
+  /* The app frame is a sidebar plus a column; on paper there is only the column. */
+  [data-print="flat"] {
+    display: block !important;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  table {
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  /* Tables print as tables, small enough to fit the page, and never clipped. */
+  table {
+    font-size: 9pt;
+  }
+  th,
+  td {
+    padding: 3pt 5pt !important;
+  }
+  main {
+    overflow: visible !important;
+  }
+  section {
+    break-inside: auto;
+  }
+  h2 {
+    break-after: avoid;
+  }
+  * {
+    box-shadow: none !important;
+  }
+}

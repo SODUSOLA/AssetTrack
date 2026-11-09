@@ -1,0 +1,70 @@
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+.crumbs li {
+  display: flex;
+  align-items: center;
+}
+.crumbs a {
+  color: var(--color-text-secondary);
+}
+.sep {
+  color: var(--color-text-muted);
+}
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.titles {
+  min-width: 0;
+}
+.title:focus {
+  outline: none;
+}
+.title:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+.subtitle {
+  margin-top: var(--space-1);
+  color: var(--color-text-secondary);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--space-4) var(--space-5);
+  margin: 0;
+}
+.dlRow dt {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.dlRow dd {
+  margin: var(--space-1) 0 0;
+  overflow-wrap: anywhere;
+}
+.none {
+  color: var(--color-text-muted);
+}

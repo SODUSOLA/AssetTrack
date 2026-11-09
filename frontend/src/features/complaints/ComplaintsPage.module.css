@@ -1,0 +1,23 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.select {
+  flex: 1 1 10rem;
+}
+.date {
+  flex: 0 1 10.5rem;
+}
+.title {
+  font-weight: var(--weight-medium);
+}
+.sub {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}

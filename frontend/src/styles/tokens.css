@@ -1,0 +1,179 @@
+/*
+ * Design tokens. Components use only these semantic names, never raw colours or sizes.
+ *
+ * Brand: dark green (primary), light green (secondary), yellow (accent). Neutrals are a warm
+ * paper in light mode and a green-black ink in dark mode, so the record feels like a ledger and
+ * not a generic dashboard. Contrast of every text pair is checked in src/styles/tokens.test.ts.
+ */
+:root {
+  color-scheme: light;
+
+  /* Colour: surfaces and lines */
+  --color-bg: #f6f4ec;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #efede3;
+  --color-border: #dad6c8;
+  --color-border-strong: #8f8a78;
+
+  /* Colour: text */
+  --color-text: #17211c;
+  --color-text-secondary: #46514b;
+  --color-text-muted: #5f6b64;
+
+  /* Brand */
+  --color-primary: #0f4c2f; /* dark green */
+  --color-primary-hover: #0a3d26;
+  --color-on-primary: #ffffff;
+  --color-primary-soft: #dcefe3;
+  --color-on-primary-soft: #0a3d26;
+  --color-secondary: #bfe0cc; /* light green */
+  --color-on-secondary: #0a3d26;
+  --color-accent: #f5b800; /* yellow */
+  --color-on-accent: #2e2400;
+
+  /* Status */
+  --color-success: #1b6b3f;
+  --color-success-soft: #dcefe3;
+  --color-warning: #6f5200;
+  --color-warning-soft: #fff1bd;
+  --color-warning-border: #d9a600;
+  --color-error: #a6261d;
+  --color-error-soft: #f8e1de;
+  --color-info: #2f5566;
+  --color-info-soft: #e2ecf0;
+
+  --color-focus: #0f4c2f;
+  --color-overlay: rgb(14 21 18 / 55%);
+
+  /* Navigation: the dark green is the brand's strongest surface */
+  --color-sidebar: #0a3d26;
+  --color-sidebar-hover: #14573a;
+  --color-sidebar-text: #e6f2ea;
+  --color-sidebar-muted: #a9c9b6;
+
+  /* Type */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-base: 0.9375rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* Space: a 4px scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Shape and depth: square-ish, flat; only overlays float */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --shadow-overlay: 0 10px 30px rgb(10 30 20 / 22%);
+  --border-width: 1px;
+
+  /* Layout */
+  --content-max: 75rem;
+  --sidebar-width: 15.5rem;
+  --control-height: 2.5rem;
+  --touch-target: 2.75rem;
+
+  /* Stacking */
+  --z-sticky: 10;
+  --z-drawer: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+}
+
+/* Dark: chosen explicitly... */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0e1512;
+  --color-surface: #151f1a;
+  --color-surface-sunken: #0b110e;
+  --color-border: #2a3a32;
+  --color-border-strong: #6d8377;
+  --color-text: #e9f0eb;
+  --color-text-secondary: #b5c4bb;
+  --color-text-muted: #93a69b;
+  --color-primary: #6ccb95;
+  --color-primary-hover: #8bdaae;
+  --color-on-primary: #062314;
+  --color-primary-soft: #1b3a29;
+  --color-on-primary-soft: #bfe6cf;
+  --color-secondary: #24402f;
+  --color-on-secondary: #cfebd9;
+  --color-accent: #f5c21b;
+  --color-on-accent: #2e2400;
+  --color-success: #7ed6a0;
+  --color-success-soft: #1b3a29;
+  --color-warning: #ffd65c;
+  --color-warning-soft: #3a3000;
+  --color-warning-border: #8a7000;
+  --color-error: #ff9b90;
+  --color-error-soft: #4a1e1a;
+  --color-info: #9cc3d6;
+  --color-info-soft: #1c2f38;
+  --color-focus: #f5c21b;
+  --color-overlay: rgb(0 0 0 / 65%);
+  --shadow-overlay: 0 10px 30px rgb(0 0 0 / 55%);
+  --color-sidebar: #0b110e;
+  --color-sidebar-hover: #17221c;
+  --color-sidebar-text: #e6f2ea;
+  --color-sidebar-muted: #93a69b;
+}
+
+/* ...or by following the system, unless light was chosen explicitly. Keep in step with the block above. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #0e1512;
+    --color-surface: #151f1a;
+    --color-surface-sunken: #0b110e;
+    --color-border: #2a3a32;
+    --color-border-strong: #6d8377;
+    --color-text: #e9f0eb;
+    --color-text-secondary: #b5c4bb;
+    --color-text-muted: #93a69b;
+    --color-primary: #6ccb95;
+    --color-primary-hover: #8bdaae;
+    --color-on-primary: #062314;
+    --color-primary-soft: #1b3a29;
+    --color-on-primary-soft: #bfe6cf;
+    --color-secondary: #24402f;
+    --color-on-secondary: #cfebd9;
+    --color-accent: #f5c21b;
+    --color-on-accent: #2e2400;
+    --color-success: #7ed6a0;
+    --color-success-soft: #1b3a29;
+    --color-warning: #ffd65c;
+    --color-warning-soft: #3a3000;
+    --color-warning-border: #8a7000;
+    --color-error: #ff9b90;
+    --color-error-soft: #4a1e1a;
+    --color-info: #9cc3d6;
+    --color-info-soft: #1c2f38;
+    --color-focus: #f5c21b;
+    --color-overlay: rgb(0 0 0 / 65%);
+    --shadow-overlay: 0 10px 30px rgb(0 0 0 / 55%);
+    --color-sidebar: #0b110e;
+    --color-sidebar-hover: #17221c;
+    --color-sidebar-text: #e6f2ea;
+    --color-sidebar-muted: #93a69b;
+  }
+}

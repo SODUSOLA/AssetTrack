@@ -1,0 +1,109 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: var(--color-overlay);
+  animation: fade var(--duration-base) ease-out;
+}
+.content {
+  position: fixed;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  max-height: 100dvh;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-strong);
+  box-shadow: var(--shadow-overlay);
+}
+.center {
+  top: 50%;
+  left: 50%;
+  width: min(100% - 2rem, 34rem);
+  max-height: min(90dvh, 48rem);
+  transform: translate(-50%, -50%);
+  border-radius: var(--radius-lg);
+  animation: rise var(--duration-base) ease-out;
+}
+.sm {
+  width: min(100% - 2rem, 26rem);
+}
+.lg {
+  width: min(100% - 2rem, 44rem);
+}
+.left {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(86vw, 20rem);
+  border-radius: 0;
+  border-left: 0;
+  animation: slide var(--duration-base) ease-out;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+.description {
+  padding: var(--space-3) var(--space-4) 0;
+  color: var(--color-text-secondary);
+}
+.body {
+  overflow-y: auto;
+  padding: var(--space-4);
+  flex: 1 1 auto;
+}
+.body:empty {
+  display: none;
+}
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--color-surface-sunken);
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 0.5rem));
+  }
+}
+@keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+}
+@media (width < 30rem) {
+  .center {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 92dvh;
+    transform: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    animation: sheet var(--duration-base) ease-out;
+  }
+  @keyframes sheet {
+    from {
+      transform: translateY(2rem);
+      opacity: 0;
+    }
+  }
+}

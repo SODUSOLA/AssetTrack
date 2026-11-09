@@ -1,0 +1,86 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-height);
+  padding: 0 var(--space-4);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast),
+    border-color var(--duration-fast);
+}
+.sm {
+  min-height: 2rem;
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+}
+.button:disabled,
+.button[aria-busy="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  color: var(--color-on-primary);
+}
+.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  color: var(--color-on-primary-soft);
+}
+.quiet {
+  background: transparent;
+  color: var(--color-primary);
+}
+.quiet:hover:not(:disabled) {
+  background: var(--color-primary-soft);
+  color: var(--color-on-primary-soft);
+}
+.danger {
+  background: var(--color-error);
+  color: var(--color-bg);
+}
+.danger:hover:not(:disabled) {
+  filter: brightness(0.9);
+  color: var(--color-bg);
+}
+.iconButton {
+  display: inline-grid;
+  place-items: center;
+  width: var(--control-height);
+  height: var(--control-height);
+  padding: 0;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+.iconButton:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-on-primary-soft);
+}
+@media (pointer: coarse) {
+  .button,
+  .iconButton {
+    min-height: var(--touch-target);
+  }
+  .iconButton {
+    min-width: var(--touch-target);
+  }
+}

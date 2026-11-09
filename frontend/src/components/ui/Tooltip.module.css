@@ -1,0 +1,9 @@
+.content {
+  z-index: var(--z-toast);
+  max-width: 18rem;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: var(--text-sm);
+}

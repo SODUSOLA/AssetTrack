@@ -1,0 +1,21 @@
+# Used by backend/Dockerfile; paths are relative to the repository root (the build context).
+.git
+.github
+.vscode
+**/.env
+**/.venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.ruff_cache
+**/.coverage
+backend/tests
+docs
+frontend/node_modules
+frontend/node_modules.nosync
+frontend/dist
+frontend/coverage
+frontend/playwright-report
+frontend/test-results
+frontend/e2e
+backend/app/static

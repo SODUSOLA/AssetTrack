@@ -1,0 +1,12 @@
+.unreachable {
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+}
+
+.unreachable h1 {
+  font-size: var(--text-lg);
+}
+
+.unreachable p {
+  margin: var(--space-2) 0 var(--space-4);
+}

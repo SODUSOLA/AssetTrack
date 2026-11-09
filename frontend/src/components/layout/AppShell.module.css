@@ -1,0 +1,122 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.skip {
+  position: absolute;
+  left: var(--space-3);
+  top: -4rem;
+  z-index: var(--z-toast);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: var(--weight-semibold);
+  border-radius: var(--radius-md);
+}
+.skip:focus {
+  top: var(--space-3);
+}
+.sidebar {
+  display: none;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.5rem;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-4);
+  background: var(--color-sidebar);
+}
+.menuButton {
+  color: var(--color-sidebar-text);
+}
+.menuButton:hover {
+  background: var(--color-sidebar-hover);
+  color: var(--color-sidebar-text);
+}
+.column {
+  min-width: 0;
+}
+.main {
+  padding: var(--space-5) var(--space-4) var(--space-7);
+}
+.content {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+.nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--control-height);
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  box-shadow: inset 3px 0 0 transparent;
+  color: var(--color-sidebar-text);
+  text-decoration: none;
+}
+.link:hover {
+  background: var(--color-sidebar-hover);
+  color: var(--color-sidebar-text);
+}
+.link[aria-current="page"] {
+  background: var(--color-sidebar-hover);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+  font-weight: var(--weight-semibold);
+}
+.sidebar :focus-visible,
+.topbar :focus-visible {
+  outline-color: var(--color-accent);
+}
+.drawer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-3);
+  margin: calc(var(--space-4) * -1);
+  min-height: 100%;
+  background: var(--color-sidebar);
+}
+.drawer .link,
+.drawer :global(button) {
+  color: var(--color-sidebar-text);
+}
+
+@media (width >= 64rem) {
+  .shell {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    height: 100dvh;
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    background: var(--color-sidebar);
+  }
+  .account {
+    margin-top: auto;
+  }
+  .topbar {
+    display: none;
+  }
+  .main {
+    padding: var(--space-6) var(--space-6) var(--space-8);
+  }
+}
+
+/* Focus lands here from the "skip to content" link; the page itself is not a control to outline. */
+.main:focus {
+  outline: none;
+}
